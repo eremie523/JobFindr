@@ -17,7 +17,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="en" className={`${poppins.className} bg-gray-50`}>
+        <html lang="en" className={`${poppins.className} bg-gray-50 p-0 m-0`}>
             <section className='flex flex-row lg:mb-0 mb-20'>
                 <SideBar></SideBar>
                 <main className='xl:w-[75%] lg:w-[93%] w-full ml-0 xl:ml-[25%] lg:ml-[7%] flex-grow flex flex-col '>

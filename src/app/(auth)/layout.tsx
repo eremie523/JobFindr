@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className='bg-accent-bg-1'>
+      <body className='bg-accent-bg-1 m-0 p-0'>
         <main className='flex flex-row gap-0 justify-center items-start radial-gradient'>
             <section className='flex-grow lg:w-1/2 w-full h-screen flex flex-col max-container'>
                 <div className={'text-xxlarge text-accent-color-1 font-bold'}>
