@@ -11,7 +11,7 @@ type Props = {}
 const MobileNav = (props: Props) => {
   const pathname = usePathname();
   return (
-    <Card className='fixed lg:hidden bg-accent-color-1 bottom-0 w-full rounded-none text-gray-300 px-4 py-2'>
+    <Card className='fixed lg:hidden bg-accent-color-1 bottom-0 w-screen rounded-none text-gray-300 px-4 py-2 m-0'>
 
       <ToggleGroup type="single" size="lg" defaultChecked={true} defaultValue={pathname} className='px-2'>
         {NAV_LINKS.map(({ href, label, icon }, i) => (

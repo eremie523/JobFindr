@@ -4,7 +4,7 @@ type Props = {}
 
 const ProfitRange = (props: Props) => {
     return (
-        <div className={`bg-accent-color-1 rounded-2xl max-md:w-full flex flex-col gap-4 text-white py-8 px-6 shadow-sm`}>
+        <div className={`bg-accent-color-1 rounded-2xl max-md:w-full flex flex-col  items-start gap-4 text-white py-8 px-6 shadow-sm`}>
             <div className='flex'>
                 {/* This should be a graph sign image */}
                 <div className='px-10 rounded-xl bg-white pt-1'></div>

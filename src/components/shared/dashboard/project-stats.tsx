@@ -1,6 +1,8 @@
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import React from 'react'
+import { FaAngleRight } from "react-icons/fa6";
+import { FaAngleLeft } from "react-icons/fa";
 
 type Props = {}
 
@@ -32,8 +34,8 @@ const ProjectStats = (props: Props) => {
                 <div className='flex w-full gap-3 px-2 pb-2 text-black justify-between'>
                     <h3>Acitve Jobs</h3>
                     <div className="controls flex gap-3 text-white">
-                        <span className="rounded-full bg-blue-400 text-small flex items-center justify-center w-[20px] h-[20px]">l</span>
-                        <span className="rounded-full bg-blue-400 text-small flex items-center justify-center w-[20px] h-[20px]">r</span>
+                        <span className="rounded-full bg-blue-400 text-small flex items-center justify-center w-[20px] h-[20px]"><FaAngleLeft /></span>
+                        <span className="rounded-full bg-blue-400 text-small flex items-center justify-center w-[20px] h-[20px]"><FaAngleRight /></span>
                     </div>
                 </div>
                 <div className='flex w-full flex-col gap-3 p-3 rounded-2xl shadow-md bg-accent-color-1/30'>
