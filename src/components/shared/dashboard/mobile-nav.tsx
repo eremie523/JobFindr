@@ -19,7 +19,7 @@ const MobileNav = (props: Props) => {
             <ToggleGroupItem value={href} aria-label={`Toggle ${label}`}>
               <div className='flex flex-col justify-center items-center'>
                 {icon}
-                <h3 className='md:inline hidden'>{label}</h3>
+                <h3 className='sm:inline hidden'>{label}</h3>
               </div>
             </ToggleGroupItem>
           </Link>

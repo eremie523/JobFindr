@@ -10,9 +10,9 @@ type Props = {}
 const page = (props: Props) => {
   const { loading } = useSignUp();
   return (
-    <div className='flex-grow flex w-full flex-col items-center justify-center pb-8 px-4'>
+    <div className='flex-grow flex w-full flex-col items-center justify-center pb-8 lg:px-4'>
       <SignUpContextProvider>
-        <Card className='border-2 border-accent-color-1 max-w-[600px] min-w-[500px] flex flex-col py-22 min-h-[450px] justify-center'>
+        <Card className='border-2 border-accent-color-1 max-lg:shadow-lg max-w-[600px] min-w-[500px] flex flex-col py-22 min-h-[450px] justify-center'>
           <Loader1 loading={loading}>
             <SignUpForm />
           </Loader1>

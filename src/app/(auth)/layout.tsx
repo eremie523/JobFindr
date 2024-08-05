@@ -19,13 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <body className='bg-accent-bg-1'>
         <main className='flex flex-row gap-0 justify-center items-start radial-gradient'>
-            <section className='flex-grow w-1/2 h-screen flex flex-col max-container'>
+            <section className='flex-grow lg:w-1/2 w-full h-screen flex flex-col max-container'>
                 <div className={'text-xxlarge text-accent-color-1 font-bold'}>
                     <h3 className={`${headerFont.className}`}>JobFindr</h3>
                 </div>
                 {children}
             </section>
-            <section className='flex flex-grow w-1/2 h-screen bg-accent-color-1 items-start relative flex-col justify-between py-20 px-12'>
+            <section className='lg:flex hidden flex-grow lg:w-1/2 w-0 lg:h-screen h-0 bg-accent-color-1 items-start relative flex-col justify-between py-20 px-12'>
                 <div className='p-12 bg-accent-bg-1 flex absolute end-0 rounded-bl-2xl top-0'></div>
 
                 <div className={'flex flex-col gap-3'}>
