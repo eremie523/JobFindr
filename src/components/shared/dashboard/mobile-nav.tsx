@@ -13,13 +13,13 @@ const MobileNav = (props: Props) => {
   return (
     <Card className='fixed lg:hidden bg-accent-color-1 bottom-0 w-full rounded-none text-gray-300 px-4 py-2'>
 
-      <ToggleGroup type="single" size="lg" defaultChecked={true} defaultValue={pathname}>
+      <ToggleGroup type="single" size="lg" defaultChecked={true} defaultValue={pathname} className='px-2'>
         {NAV_LINKS.map(({ href, label, icon }, i) => (
           <Link href={href} key={i}>
             <ToggleGroupItem value={href} aria-label={`Toggle ${label}`}>
               <div className='flex flex-col justify-center items-center'>
                 {icon}
-                <h3>{label}</h3>
+                <h3 className='md:inline hidden'>{label}</h3>
               </div>
             </ToggleGroupItem>
           </Link>
