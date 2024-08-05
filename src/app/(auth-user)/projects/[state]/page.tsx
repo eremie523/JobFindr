@@ -3,6 +3,7 @@ import JobCard from '@/components/shared/dashboard/job-card'
 import { Button } from '@/components/ui/button'
 import { ProjectTabs } from '@/constants/menu'
 import { Jobs } from '@/types'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
@@ -22,7 +23,7 @@ const page = ({params} : {params: {state: string}}) => {
         pay: "$200",
         interval: "monthly",
         category: "Full Time",
-        authorImUrl: "/vercel.svg",
+        authorImUrl: "/assets/images/fiverr.jpg",
     }, {
         author: "Upwork Plc",
         timestamp: 20834234,
@@ -30,7 +31,8 @@ const page = ({params} : {params: {state: string}}) => {
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem eaque eos soluta aperiam non necessitatibus ullam, nisi alias doloribus! Ab?",
         pay: "$200",
         interval: "monthly",
-        category: "Full Time"
+        category: "Full Time",
+        authorImUrl: "/assets/images/upwork.jpg",
     }, {
         author: "Upwork Plc",
         timestamp: 20834234,
@@ -38,7 +40,8 @@ const page = ({params} : {params: {state: string}}) => {
         description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem eaque eos soluta aperiam non necessitatibus ullam, nisi alias doloribus! Ab?",
         pay: "$200",
         interval: "monthly",
-        category: "Full Time"
+        category: "Full Time",
+        authorImUrl: "/assets/images/upwork.jpg",
     }]);
 
     useEffect(() => {
@@ -50,7 +53,9 @@ const page = ({params} : {params: {state: string}}) => {
             <div className='flex gap-3 pb-3'>
                 {
                     ProjectTabs.map((val, i) => (
-                        <Button variant={`${searchquery == val ? "default" : "outline"}`} className={`text-small ${searchquery == val && "bg-accent-color-1"} shadow capitalize`} key={i}>{val}</Button>
+                        <Link href={`/projects/${val.toLowerCase()}`}>
+                            <Button variant={`${searchquery == val ? "default" : "outline"}`} className={`text-small ${searchquery == val && "bg-accent-color-1"} shadow capitalize`} key={i}>{val}</Button>
+                        </Link>
                     ))
                 }
             </div>

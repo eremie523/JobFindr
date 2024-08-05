@@ -51,7 +51,7 @@ const RecommendedJobsSection = (props: Props) => {
                 })}
             </div>
             <div className='mt-4 text-right px-2 text-secondary-lavender flex flex-col gap-0 items-end'>
-                <Link href={`/projects?q=saved`} className='text-sm text-blue-400'>View More</Link>
+                <Link href={`/projects/active`} className='text-sm text-blue-400'>View More</Link>
                 <div className='pt-1 bg-blue-400 px-12 rounded-xl'></div>
             </div>
         </div>

@@ -23,7 +23,7 @@ const SideBar = (props: Props) => {
                 <h3 className={`${headerFont.className} xl:block hidden`}>JobFindr</h3>
             </div>
             <Card className={'p-4 py-8 text-gray-600 shadow-none hidden xl:flex flex-col justify-center gap-4 items-center border-0'}>
-                <Image src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2-YaGxKSXWxV6rQcK9JP0APjqK7ujmcjqCQ&usqp=CAU"} alt='profileImae' width={120} height={120} className='rounded-full border border-black w-[120px] h-[120px] object-cover bg-cover'></Image>
+                <Image src={"/assets/icons/profile-image.png"} alt='profileImae' width={120} height={120} className='rounded-full border border-black w-[120px] h-[120px] object-cover bg-cover'></Image>
                 <h3 className={`text-2xl font-bold italic ${headerFont2.className}`}>Eremie Johnson</h3>
             </Card>
             <ul className='flex flex-col gap-2 flex-grow bg-accent-color-1/80 xl:rounded-tr-[3rem] rounded-none overflow-hidden pt-[2.35rem]' >

@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className='bg-accent-bg-1 m-0 p-0'>
         <main className='flex flex-row gap-0 justify-center items-start radial-gradient'>
             <section className='flex-grow lg:w-1/2 w-full h-screen flex flex-col max-container'>
-                <div className={'text-xxlarge text-accent-color-1 font-bold'}>
+                <div className={'text-xxlarge text-accent-color-1 font-bold max-md:text-center'}>
                     <h3 className={`${headerFont.className}`}>JobFindr</h3>
                 </div>
                 {children}

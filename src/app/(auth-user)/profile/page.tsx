@@ -30,8 +30,8 @@ const page = (props: Props) => {
  
   return (
     <section className={'flex lg:flex-row flex-col relative gap-3 lg:p-14 md:p-8 p-3 min-h-screen'}>
-      <div className='w-full absolute top-0 start-0 overflow-hidden h-[150px] object-cover'>
-        <Image src={"/vercel.svg"} alt='bg' width={200} height={200} className='w-full h-full object-cover'></Image>
+      <div className='w-full absolute top-0 start-0 overflow-hidden h-[180px] object-cover'>
+        <Image src={"/assets/images/landscape-bg2.jpg"} alt='bg' width={200} height={180} className='w-full h-full object-cover'></Image>
       </div>
       <ProfileCard2 name={fname} email={email} bio={bio} phoneNo={phoneNumber} matricNo={matricNo} />
       <Card className="lg:w-2/3 w-full p-5 py-7 bg-white relative">
