@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { SIGNUP_FIELDS } from '@/constants';
+import { SIGNUP_FIELDS } from '@/constants/menu';
 import { useSignUp } from '@/hooks/useSignUp';
 import { Playfair_Display_SC } from 'next/font/google'
 import Link from 'next/link'

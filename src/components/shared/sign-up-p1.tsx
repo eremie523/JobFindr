@@ -1,4 +1,4 @@
-import { SIGNUP_SSO } from '@/constants'
+import { SIGNUP_SSO } from '@/constants/menu'
 import React from 'react'
 import SignupSSO from './signup-sso'
 import { Button } from '../ui/button'

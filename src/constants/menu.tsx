@@ -1,3 +1,8 @@
+import { RxDashboard } from "react-icons/rx";
+import { MdOutlineSettingsSuggest } from "react-icons/md";
+import { FaRegUser } from "react-icons/fa6";
+import { FaTasks } from "react-icons/fa";
+
 const SIGNUP_SSO = [
     {
         imgURL: "/assets/icons/google_icon.jpg",
@@ -69,19 +74,23 @@ const SIGNUP_FIELDS = [
 const NAV_LINKS = [
     {
         href: "/dashboard",
-        label: "Dashboard"
+        label: "Dashboard",
+        icon: <RxDashboard />
     },
     {
         href: "/settings",
-        label: "Settings"
+        label: "Settings",
+        icon: <MdOutlineSettingsSuggest />
     },
     {
         href: "/profile",
-        label: "Profile"
+        label: "Profile",
+        icon: <FaRegUser />
     },
     {
-        href: "/projects",
-        label: "Projects"
+        href: "/projects/active",
+        label: "Projects",
+        icon: <FaTasks />
     },
 ]
 

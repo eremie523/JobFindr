@@ -1,4 +1,4 @@
-import { SIGNUP_FIELDS } from '@/constants'
+import { SIGNUP_FIELDS } from '@/constants/menu'
 import React from 'react'
 import InputGenerator from './input-generator'
 import { useSignUp } from '@/hooks/useSignUp'

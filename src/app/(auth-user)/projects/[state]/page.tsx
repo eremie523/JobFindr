@@ -1,15 +1,15 @@
 "use client"
 import JobCard from '@/components/shared/dashboard/job-card'
 import { Button } from '@/components/ui/button'
-import { ProjectTabs } from '@/constants'
+import { ProjectTabs } from '@/constants/menu'
 import { Jobs } from '@/types'
 import { usePathname } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 type Props = {}
 
-const page = (props: Props) => {
-    const [searchquery, SetSearchQuery] = useState<string | undefined>("active");
+const page = ({params} : {params: {state: string}}) => {
+    const [searchquery, SetSearchQuery] = useState<string | undefined>(params.state);
     const pathname = usePathname();
 
     //Use Next Js Dynamic Routing;
@@ -44,10 +44,7 @@ const page = (props: Props) => {
     useEffect(() => {
         //Set Recommended Jobs after fetching from server
     }, [jobs]);
-
-    useEffect(() => {
-        SetSearchQuery((pathname.split("?q=")).pop());
-    }, [])
+    
     return (
         <section className='md:p-10 md:py-8 p-3'>
             <div className='flex gap-3 pb-3'>

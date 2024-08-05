@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${poppins.className} bg-gray-50`}>
-            <section className='flex flex-row'>
+            <section className='flex flex-row lg:mb-0 mb-20'>
                 <SideBar></SideBar>
-                <main className='lg:w-[75%] w-full ml-0 lg:ml-[25%] flex-grow flex flex-col '>
+                <main className='xl:w-[75%] lg:w-[93%] w-full ml-0 xl:ml-[25%] lg:ml-[7%] flex-grow flex flex-col '>
                     {children}
                 </main>
             </section>

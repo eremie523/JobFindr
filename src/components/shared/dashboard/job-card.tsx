@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import Image from 'next/image'
 import React, { useState } from 'react'
+import { HiOutlineBookmark } from "react-icons/hi";
 
 type Props = {
     fullWidth?: boolean,
@@ -32,8 +33,11 @@ const JobCard = ({fullWidth, key, author, timestamp, title, description, interva
                         <CardDescription>Uploaded {timestamp} ago</CardDescription>
                     </div>
                 </div>
-                <div>
+                <div className='flex flex-col gap-3 justify-end'>
                     <Button className='text-small text-white hover:text-secondary-gold'>Apply</Button>
+                    <div className='text-gray-300'>
+                        <HiOutlineBookmark />
+                    </div>
                 </div>
             </CardHeader>
             <CardDescription className='px-3 pb-3'>

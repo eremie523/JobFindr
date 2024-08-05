@@ -1,6 +1,6 @@
 "use client"
 import { CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { LOGIN_FIELDS, SIGNUP_SSO } from '@/constants'
+import { LOGIN_FIELDS, SIGNUP_SSO } from '@/constants/menu'
 import React from 'react'
 import InputGenerator from '../input-generator'
 import { Button } from '@/components/ui/button'
