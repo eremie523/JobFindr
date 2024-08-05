@@ -33,9 +33,9 @@ const JobCard = ({fullWidth, key, author, timestamp, title, description, interva
                         <CardDescription>Uploaded {timestamp} ago</CardDescription>
                     </div>
                 </div>
-                <div className='flex flex-col gap-3 justify-end'>
+                <div className='flex flex-col gap-3 justify-end items-end'>
                     <Button className='text-small text-white hover:text-secondary-gold'>Apply</Button>
-                    <div className='text-gray-300'>
+                    <div className='text-gray-800 text-xl'>
                         <HiOutlineBookmark />
                     </div>
                 </div>
