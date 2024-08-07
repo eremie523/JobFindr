@@ -19,7 +19,7 @@ const SignUpForm = (props: Props) => {
     <>
       <CardHeader>
         <CardTitle className={`text-black text-3xl font-medium`}>Get started</CardTitle>
-        <CardDescription className={'text-gray-600 text-sm'}>Already have an account? <Link href={"/register"} className='text-accent-color-1 underline font-medium'>Sign in</Link></CardDescription>
+        <CardDescription className={'text-gray-600 text-sm'}>Already have an account? <Link href={"/login"} className='text-accent-color-1 underline font-medium'>Sign in</Link></CardDescription>
       </CardHeader>
       <CardContent>
         <form action="" method="post" onSubmit={onHandleSubmit} className={'gap-6 flex flex-col'}>
