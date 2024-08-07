@@ -12,7 +12,7 @@ export default function Page() {
       <Link href={"/register"}>
         <Button className='absolute top-0 end-0 m-5'>Create Account</Button>
       </Link>
-      <div className='flex flex-col relative items-center px-4'>
+      <div className='flex flex-col relative items-center px-4 lg:pb-12'>
         <div className={'lg:text-8xl md:text-6xl text-4xl text-white font-bold max-md:text-center'}>
           <h3 className={`${headerFont.className}`}>JobFindr</h3>
         </div>
