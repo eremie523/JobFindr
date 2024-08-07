@@ -2,6 +2,7 @@ import { Button } from '@/components/ui/button';
 import { Playfair_Display } from 'next/font/google';
 import Image from 'next/image'
 import Link from 'next/link';
+import { AiOutlineCopyright } from "react-icons/ai";
 
 const headerFont = Playfair_Display({ subsets: ["latin"] });
 
@@ -26,8 +27,8 @@ export default function Page() {
           </Link>
         </div>
       </div>
-      <div className='w-screen absolute bg-black bottom-0 start-0 p-5 text-center text-slate-200'>
-        <span>All Rights Reserved. JobFindr 2024</span>
+      <div className='w-screen absolute bg-black bottom-0 start-0 p-5 text-center text-slate-200 flex gap-2 items-center justify-center'>
+        <AiOutlineCopyright /> <span>All Rights Reserved. JobFindr 2024</span>
       </div>
       {/* <Image src={'/assets/images/landing.jpg'} alt='Landing Bg' width={100} height={100} className='w-screen h-screen object-cover absolute top-0 left-0'></Image> */}
     </main>
