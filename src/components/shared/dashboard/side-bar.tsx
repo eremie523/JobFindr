@@ -9,6 +9,8 @@ import { usePathname } from 'next/navigation';
 import React from 'react'
 import { RiUserForbidLine } from "react-icons/ri";
 import { BiLogOut } from "react-icons/bi";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
+
 
 type Props = {}
 
@@ -39,11 +41,27 @@ const SideBar = (props: Props) => {
                         </Link>
                     )
                 })}
-
-                <Button type="button" variant={"default"} className='text-red-400 font-normal bg-transparent rounded-none text-md  hover:text-accent-bg-1 text-left flex justify-start gap-3 px-6'>
-                    <RiUserForbidLine />
-                    <span className='hidden xl:inline'>Delete Account</span>
-                </Button>
+                <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                        <Button type="button" variant={"default"} className='text-red-400 font-normal bg-transparent rounded-none text-md  hover:text-accent-bg-1 text-left flex justify-start gap-3 px-6'>
+                            <RiUserForbidLine />
+                            <span className='hidden xl:inline'>Delete Account</span>
+                        </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                                This action cannot be undone. This will permanently delete your
+                                account and remove your data from our servers.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction>Continue</AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
                 <Button type="button" variant={"default"} className='text-red-400 font-normal bg-transparent rounded-none text-md hover:text-accent-bg-1 text-left flex justify-start gap-3 px-6'>
                     <BiLogOut />
                     <span className='hidden xl:inline'>Logout</span>
