@@ -14,7 +14,7 @@ const headerFont = Playfair_Display({ subsets: ["latin"] });
 
 const TopNav = (props: Props) => {
     return (
-        <div className='bg-white shadow p-3 px-5 fixed top-0 start-0 w-screen flex lg:hidden justify-between items-center'>
+        <div className='bg-white shadow p-3 px-5 fixed top-0 start-0 w-screen flex lg:hidden justify-between items-center z-10'>
             <Link href={"/"}>
                 <div className={'text-xl text-accent-color-1 font-bold max-md:text-center'}>
                     <h3 className={`${headerFont.className}`}>JobFindr</h3>
