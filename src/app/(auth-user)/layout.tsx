@@ -3,6 +3,7 @@ import { Poppins } from 'next/font/google'
 import '../globals.css'
 import SideBar from '@/components/shared/dashboard/side-bar'
 import MobileNav from '@/components/shared/dashboard/mobile-nav'
+import TopNav from '@/components/shared/dashboard/top-nav'
 
 const poppins = Poppins({ weight: ["100", "300", "500"], subsets: ["latin"]});
 
@@ -18,7 +19,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className={`${poppins.className} bg-gray-50 p-0 m-0`}>
-            <section className='flex flex-row lg:mb-0 mb-20'>
+            <TopNav></TopNav>
+            <section className='flex flex-row lg:mb-0 lg:mt-0 mt-16 mb-20'>
                 <SideBar></SideBar>
                 <main className='xl:w-[75%] lg:w-[93%] w-full ml-0 xl:ml-[25%] lg:ml-[7%] flex-grow flex flex-col '>
                     {children}
