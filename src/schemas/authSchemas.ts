@@ -12,6 +12,7 @@ const SignUpSchema = z.object({
     matricNo: z.string().refine((value) => {
         return true;
     }),
+    age: z.string(),
     bio: z.string().min(10, {message: "Value must be atleast 10 characters long"}).max(100, {message: "Value must not exceed 100 characters"}),
     profileImage: z.string(),
     finalYearFile: z.string(),

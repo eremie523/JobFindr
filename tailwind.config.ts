@@ -20,7 +20,7 @@ const config = withUt({
     },
     extend: {
       colors: {
-        "accent-color-1": '#6A0DAD',
+        "accent-color-1": '#000080',
         "accent-bg-1": '#FFFFFF',
         "accent-bg-1-50": '#DDFFDD',
         "secondary-gold": '#FFD700',

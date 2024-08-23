@@ -14,18 +14,15 @@ const headingFont = Playfair_Display_SC({ subsets: ["latin-ext"], weight: ["400"
 type Props = {}
 
 const SignUpForm = (props: Props) => {
-  const {onHandleSubmit} = useSignUp();
   return (
     <>
       <CardHeader>
         <CardTitle className={`text-black text-3xl font-medium`}>Get started</CardTitle>
         <CardDescription className={'text-gray-600 text-sm'}>Already have an account? <Link href={"/login"} className='text-accent-color-1 underline font-medium'>Sign in</Link></CardDescription>
       </CardHeader>
-      <CardContent>
-        <form action="" method="post" onSubmit={onHandleSubmit} className={'gap-6 flex flex-col'}>
+      <CardContent className='flex flex-col gap-4'>
           <AlterFormStage />
           <ButtonSection />
-        </form>
       </CardContent>
     </>
   )

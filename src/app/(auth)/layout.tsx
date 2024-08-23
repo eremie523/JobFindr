@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import '../globals.css'
 import { Playfair_Display } from 'next/font/google'
 import Image from 'next/image';
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'JobFindr | Auth',
@@ -48,6 +49,7 @@ export default function RootLayout({
                 </div>
             </section>
         </main>
+        <Toaster />
       </body>
     </html>
   )

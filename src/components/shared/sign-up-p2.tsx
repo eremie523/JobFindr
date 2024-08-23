@@ -2,11 +2,12 @@ import { SIGNUP_FIELDS } from '@/constants/menu'
 import React from 'react'
 import InputGenerator from './input-generator'
 import { useSignUp } from '@/hooks/useSignUp'
+import { useFormContext } from 'react-hook-form'
 
 type Props = {}
 
 const SignUpPhase2 = (props: Props) => {
-  const { register, errors } = useSignUp();
+  const { register, formState: { errors } } = useFormContext();
 
   return (
     <>

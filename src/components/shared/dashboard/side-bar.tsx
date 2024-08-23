@@ -1,6 +1,6 @@
 "use client"
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
+import { Card, CardTitle } from '@/components/ui/card';
 import { NAV_LINKS } from '@/constants/menu';
 import { Playfair_Display, Playfair_Display_SC, Playpen_Sans } from 'next/font/google'
 import Image from 'next/image';
@@ -10,6 +10,8 @@ import React from 'react'
 import { RiUserForbidLine } from "react-icons/ri";
 import { BiLogOut } from "react-icons/bi";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog';
+import { FaPersonRunning } from 'react-icons/fa6';
+import { MdOutlinePendingActions } from 'react-icons/md';
 
 
 type Props = {}
@@ -26,7 +28,12 @@ const SideBar = (props: Props) => {
             </div>
             <Card className={'p-4 py-8 text-gray-600 shadow-none hidden xl:flex flex-col justify-center gap-4 items-center border-0'}>
                 <Image src={"/assets/icons/profile-image.png"} alt='profileImae' width={120} height={120} className='rounded-full border border-black w-[120px] h-[120px] object-cover bg-cover'></Image>
-                <h3 className={`text-2xl font-bold italic ${headerFont2.className}`}>Eremie Johnson</h3>
+                <CardTitle className='flex flex-col justify-center items-center'>
+                    <h3 className={`text-2xl font-bold italic ${headerFont2.className}`}>Eremie Johnson</h3>
+                    <div className='flex flex-row gap-1 items-center text-lg'>
+                        <div className='flex items-center justify-center p-1 rounded-full bg-yellow-300 text-white'><MdOutlinePendingActions /></div><p className='text-yellow-500 font-semibold'>Pending</p>
+                    </div>
+                </CardTitle>
             </Card>
             <ul className='flex flex-col gap-2 flex-grow bg-accent-color-1/80 xl:rounded-tr-[3rem] rounded-none overflow-hidden pt-[2.35rem]' >
                 {NAV_LINKS.map(({ href, label, icon }, i) => {

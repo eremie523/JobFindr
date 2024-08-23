@@ -1,64 +1,66 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { UploadDropzone } from '@/utils/uploadthing'
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
-import { extractRouterConfig } from 'uploadthing/server';
-import { ourFileRouter } from '@/app/api/uploadthing/core';
-import { Label } from '../ui/label';
-import Image from 'next/image';
+import React, { useState } from 'react'
+import { SingleImageDropzone } from './single-upload';
+import { useEdgeStore } from '@/lib/edgestore';
+import { Progress } from '../ui/progress';
+import { Button } from '../ui/button';
 import { useSignUp } from '@/hooks/useSignUp';
+import { Input } from '../ui/input';
+import { useFormContext } from 'react-hook-form';
 
 type Props = {}
 
-const SignUpPhase3 = (props: Props) => {
-  const [imgUrl, setImgUrl] = useState<string>("");
-  const { setValue } = useSignUp();
-  useEffect(() => {
-    setValue("profileImage", imgUrl);
-  }, [imgUrl]);
+const SignUpPhase4 = (props: Props) => {
+  const { edgestore } = useEdgeStore();
+  const [file, setFile] = useState<File | undefined>()
+  const [progress, setProgress] = useState<number>(0);
+  const [thumnailUrl, setThumbnailUrl] = useState<string | null | undefined>();
+  const [imgUrl, setImgUrl] = useState<string | null | undefined>();
+  const {setValue, formState: {errors}, register} = useFormContext();
+
   return (
     <>
-      <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} /> 
-      <div>
-        <UploadDropzone 
-          appearance={{
-            container: "",
-            uploadIcon: "text-accent-color-1",
-            label: "text-accent-color-1 hover:text-gray-600",
-            button: "bg-accent-color-1",
-            allowedContent: "",
-          }}
-          content={{
-            uploadIcon({ ready }) {
-              if (ready) {
-                return (
-                  <>
-                    {
-                      imgUrl != "" ? <Image src={imgUrl} alt={imgUrl} width={100} height={100}></Image> : <div className='flex h-[100px] w-[100px] justify-center items-center'>
-                        <Image src={"/assets/icons/images.png"} alt='image Icon' width={30} height={30}></Image>
-                      </div>
-                    }
-                  </>
-                );
-              }
-         
-              return "Getting ready...";
+      <SingleImageDropzone
+        height={200}
+        value={file}
+        dropzoneOptions={{
+          maxSize: 1024 * 1024 * 5,
+          maxFiles: 1,
+        }}
+        onChange={async (e) => {
+          setFile(e);
+          let res = await edgestore.myPublicImages.upload({
+            file: e!,
+            input: {type: "post"},
+            options: {
+              temporary: true,
             },
-            label() {
-              return <Label className={'text-2xl'}>Profile Image</Label>
+            onProgressChange: (progress) => {
+              setProgress(progress);
             }
+          })
+          setValue("profileImage", res.url);
+        }}
+      />
+      <Progress value={progress} />
+      <Input {...register("profileImage")} disabled></Input>
+      {/* <Button variant={'outline'} onClick={async () => {
+        if (file) {
+          const res = await edgestore.myPublicImages.upload({
+            file,
+            input: { type: "post" },
+            onProgressChange: (progress) => {
+              setProgress(progress);
+            }
+          });
 
-          }}
-          endpoint="imageUploader"
-          onClientUploadComplete={(res: any) => {
-            setImgUrl(res[0].url);
-            console.log(res)
-          }}
-          onUploadError={(err) => console.log(err)}
-        />
-      </div>
+          setImgUrl(res.url);
+          setThumbnailUrl(res.thumbnailUrl);
+          //Save data to DB;
+        }
+      }}> Upload File </Button> */}
     </>
   )
 }
 
-export default SignUpPhase3
+export default SignUpPhase4

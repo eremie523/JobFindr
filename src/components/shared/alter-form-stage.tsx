@@ -10,7 +10,7 @@ type Props = {}
 
 const AlterFormStage = (props: Props) => {
     const { step } = useSignUpContextHook();
-
+    
     switch (step) {
         case 0:
             return <SignUpPhase1 />

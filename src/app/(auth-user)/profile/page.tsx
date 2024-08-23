@@ -4,6 +4,7 @@ import InputGenerator from '@/components/shared/input-generator'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Label } from '@/components/ui/label'
+import { Textarea } from '@/components/ui/textarea'
 import { SIGNUP_FIELDS } from '@/constants/menu'
 import { useSignUp, useUpdateProfile } from '@/hooks/useSignUp'
 import { ErrorMessage } from '@hookform/error-message'
@@ -43,9 +44,9 @@ const page = (props: Props) => {
           })}
           <div className='flex flex-col gap-3'>
             <Label className={'font-semibold px-1 text-small text-gray-700'}>Bio</Label>
-            <textarea placeholder='Write a short description about yourself' {...register("bio")} className='h-[10rem] w-full p-3'>
+            <Textarea placeholder='Write a short description about yourself' {...register("bio")}>
                 
-            </textarea>
+            </Textarea>
             <ErrorMessage name='bio' errors={errors} render={({message}) => {
               return (<p className={'text-red-700 text-sm mt-2'}>{message}</p>)
             }}></ErrorMessage>

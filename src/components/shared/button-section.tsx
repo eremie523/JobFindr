@@ -7,12 +7,12 @@ type Props = {}
 
 const ButtonSection = (props: Props) => {
     const { step, setStep } = useSignUpContextHook();
-    // const { formState, getFieldState } = useSignUp();
+    const { formState, getFieldState } = useFormContext();
 
-    // const { isDirty: emailState } = getFieldState("email", formState);
-    // const { isDirty: passwordState } = getFieldState("password", formState);
-    // const { isDirty: fullnameState } = getFieldState("fullname", formState);
-    // const { isDirty: matricNoState } = getFieldState("matricNo", formState);
+    const { isDirty: emailState } = getFieldState("email", formState);
+    const { isDirty: passwordState } = getFieldState("password", formState);
+    const { isDirty: fullnameState } = getFieldState("fullname", formState);
+    const { isDirty: matricNoState } = getFieldState("matricNo", formState);
 
     switch (step) {
         case 0:
@@ -25,9 +25,9 @@ const ButtonSection = (props: Props) => {
                         setStep((prev) => prev - 1);
                     }}>Previous</Button>
                     <Button className={'bg-green-700 text-white w-1/2 flex-grow'} onClick={() => {
-                        // if ((emailState || passwordState || fullnameState || matricNoState)) {
+                        if (!(emailState || passwordState || fullnameState || matricNoState)) {
                             
-                        // };
+                        };
                         setStep((prev) => prev + 1);
                     }} type='button'>Next</Button>
                 </div>
@@ -63,15 +63,15 @@ const ButtonSection = (props: Props) => {
                 </div>
             )
 
-            case 4: 
-                return (
-                    <div className={'flex justify-between gap-3'}>
-                        <Button className={'bg-gray-600 text-white w-1/2 flex-grow'} type='button' onClick={() => {
-                            setStep((prev) => prev - 1);
-                        }}>Previous</Button>
-                        <Button className={'bg-green-700 text-white w-1/2 flex-grow'} type='submit'>Create Account</Button>
-                    </div>
-                )
+        case 4: 
+            return (
+                <div className={'flex justify-between gap-3'}>
+                    <Button className={'bg-gray-600 text-white w-1/2 flex-grow'} type='button' onClick={() => {
+                        setStep((prev) => prev - 1);
+                    }}>Previous</Button>
+                    <Button className={'bg-green-700 text-white w-1/2 flex-grow'} type='submit'>Create Account</Button>
+                </div>
+            )
 
         default:
             break;

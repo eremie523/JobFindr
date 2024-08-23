@@ -54,7 +54,7 @@ const page = ({params} : {params: {state: string}}) => {
                 {
                     ProjectTabs.map((val, i) => (
                         <Link href={`/projects/${val.toLowerCase()}`}>
-                            <Button variant={`${searchquery == val ? "default" : "outline"}`} className={`text-small ${searchquery == val && "bg-accent-color-1"} shadow capitalize`} key={i}>{val}</Button>
+                            <Button variant={`${searchquery == val ? "default" : "outline"}`} className={`text-small ${searchquery == val && "bg-accent-color-1 text-white"} shadow capitalize`} key={i}>{val}</Button>
                         </Link>
                     ))
                 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { EdgeStoreProvider } from '@/lib/edgestore'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={``}>{children}</body>
+      <body>
+        <EdgeStoreProvider>{children}</EdgeStoreProvider>
+      </body>
     </html>
   )
 }

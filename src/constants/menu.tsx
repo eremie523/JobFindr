@@ -42,6 +42,13 @@ const SIGNUP_FIELDS = [
         type: "text",
     },
     {
+        name: "age",
+        placeholder: "Age",
+        id: "age", 
+        inputType: "input",
+        type: "number",
+    },
+    {
         name: "email",
         placeholder: "Email Address",
         id: "email", 
