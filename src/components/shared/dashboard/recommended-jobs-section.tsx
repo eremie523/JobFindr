@@ -3,31 +3,37 @@ import React, { useEffect, useState } from 'react'
 import JobCard from './job-card';
 import Link from 'next/link';
 import { Jobs } from '@/types';
+import { getAllJobs } from '@/utils';
+import { toast } from '@/components/ui/use-toast';
 
-type Props = {}
+type Props = {
+    userStatus: "pending" | "active"
+}
 
-const RecommendedJobsSection = (props: Props) => {
-    const [recommendedJobs, setRecommendedJobs] = useState<Jobs>([{
-        author: "Fiverr",
-        timestamp: 20834234,
-        title: "Go and Die",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem eaque eos soluta aperiam non necessitatibus ullam, nisi alias doloribus! Ab?",
-        pay: "$200",
-        interval: "monthly",
-        category: "Full Time"
-    },{
-        author: "Upwork Plc",
-        timestamp: 20834234,
-        title: "Go and Die",
-        description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem eaque eos soluta aperiam non necessitatibus ullam, nisi alias doloribus! Ab?",
-        pay: "$200",
-        interval: "monthly",
-        category: "Full Time"
-    }]);
+const RecommendedJobsSection = ({userStatus}: Props) => {
+    const [recommendedJobs, setRecommendedJobs] = useState<Jobs>([]);
 
     useEffect(() => {
-        //Set Recommended Jobs after fetching from server
-    }, [recommendedJobs]);
+        getAllJobs().then((res) => {
+            if(!res || res.status == "error") {
+                return toast({
+                    variant: "destructive",
+                    description: "Unable to fetch recommended Jobs"
+                })
+            } 
+
+            if(res.status == "success") {
+                setRecommendedJobs([res.data[0], res.data[1]]);
+            }
+        }).catch((error: any) => {
+            console.log(error.message);
+            return toast({
+                variant: "destructive",
+                description: "Unable to fetch recommended Jobs"
+            })
+        });
+
+    }, []);
 
     return (
         <div className='flex-grow bg-white rounded-2xl p-3'>
@@ -38,6 +44,7 @@ const RecommendedJobsSection = (props: Props) => {
                     if(recommendedJobs.length == 1) {width = true};
 
                     return (<JobCard 
+                        userStatus={userStatus}
                         author={job.author}
                         timestamp={job.timestamp}
                         title={job.title}
@@ -47,6 +54,9 @@ const RecommendedJobsSection = (props: Props) => {
                         category={job.category}
                         key={i}
                         fullWidth={width}
+                        jobUrl={job.url}
+                        jobId={job.id}
+                        section
                      />)
                 })}
             </div>

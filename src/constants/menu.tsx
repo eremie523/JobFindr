@@ -2,6 +2,7 @@ import { RxDashboard } from "react-icons/rx";
 import { MdOutlineSettingsSuggest } from "react-icons/md";
 import { FaRegUser } from "react-icons/fa6";
 import { FaTasks } from "react-icons/fa";
+import { User } from "@/types";
 
 const SIGNUP_SSO = [
     {
@@ -32,6 +33,17 @@ const LOGIN_FIELDS = [
         type: "password",
     }
 ];
+
+const InitUser: User = {
+    id: "",
+    fullname: "",
+    email: "",
+    phone_number: "",
+    profileImg: "",
+    bio: "",
+    age: 0,
+    status: "pending",
+}
 
 const SIGNUP_FIELDS = [
     {
@@ -109,5 +121,6 @@ export {
     LOGIN_FIELDS,
     SIGNUP_FIELDS,
     NAV_LINKS,
-    ProjectTabs
+    ProjectTabs,
+    InitUser,
 };

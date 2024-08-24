@@ -6,7 +6,7 @@ import LoginForm from '@/components/shared/forms/login-form'
 import useLogin from '@/hooks/useLogin'
 
 const page = (props: any) => { 
-  const { onHandleSubmit, register, reset, errors, loading } = useLogin();
+  const { onHandleSubmit, register, errors, loading } = useLogin();
   return (
     <div className='flex-grow flex w-full flex-col items-center justify-center lg:pb-8 lg:px-4'>
         <Card className='border-2 border-accent-color-1 max-lg:shadow-lg max-w-[550px] lg:min-w-[500px] min-w-full flex flex-col py-22 min-h-[450px] justify-center'>

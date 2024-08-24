@@ -51,7 +51,11 @@ const useSignUp = () => {
         let res = await createUser(data);
 
         if(!res) {
-            throw new Error("No Response Received from Server") //Throw Error and create a toast
+            return toast({
+                variant: "destructive",
+                title: "Error",
+                description: "No Response Received from Server",
+            }) //Throw Error and create a toast
         }
 
         if(res.status == "Success") {
@@ -63,10 +67,16 @@ const useSignUp = () => {
                 description: res.message,
             });
 
-            setTimeout(() => {
+            return setTimeout(() => {
                 router.push("/login");
             }, 1000)
         }
+
+        return toast({
+            variant: "destructive",
+            title: "Error",
+            description: res.message ? res.message : "Something went wrong",
+        })
     }, (errors) => {
         toast({
             variant: "destructive",

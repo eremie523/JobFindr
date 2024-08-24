@@ -9,9 +9,9 @@ const ProfitRange = (props: Props) => {
                 {/* This should be a graph sign image */}
                 <div className='px-10 rounded-xl bg-white pt-1'></div>
             </div>
-            <h3>Earnings</h3>
+            <h3>Viewed Jobs</h3>
             <div className={`text-3xl`}>
-                <span className={`text-gray-300`}>$</span><span className={`font-semibold`}>8,350</span>
+                <span className={`text-gray-300`}></span><span className={`font-semibold`}>8,350</span>
             </div>
             <div className={`text-sm bg-blue-400 px-2 py-1 text-gray-800 rounded-2xl`}>
                 {/* This information of 10% profit increase since last month should be fetched from DB and stored in a state */}
