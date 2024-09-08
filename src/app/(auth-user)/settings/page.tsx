@@ -1,16 +1,28 @@
 "use client"
+import InputGenerator from '@/components/shared/input-generator'
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
+import { Button } from '@/components/ui/button'
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { toast } from '@/components/ui/use-toast'
+import { changePasswordSchema } from '@/schemas/authSchemas'
 import { deleteAccount } from '@/utils'
+import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { FaAngleRight, FaLock } from 'react-icons/fa6'
 
 type Props = {}
 
 const page = (props: Props) => {
     const router = useRouter()
+    const {handleSubmit, register, formState: {errors}} = useForm({
+        resolver: zodResolver(changePasswordSchema),
+        mode: "onChange"
+    })
     return (
         <div className='max-container'>
             <h3 className='text-3xl capitalize mb-4'>Settings</h3>
@@ -21,14 +33,52 @@ const page = (props: Props) => {
                     <p className='text-gray-600'>Update information, secure settings, download data, or say goodbye. It's all in your hands.</p>
                 </div>
                 <ul>
-                    <li className='p-3 px-6 hover:bg-accent-color-1/20 flex justify-between items-center'>
-                        <span>Account Details</span>
-                        <FaAngleRight />
-                    </li>
-                    <li className='p-3 px-6 hover:bg-accent-color-1/20 flex justify-between items-center'>
-                        <span>Change Password</span>
-                        <FaAngleRight />
-                    </li>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <li className='p-3 px-6 hover:bg-accent-color-1/20 flex justify-between items-center'>
+                                <span>Account Details</span>
+                                <FaAngleRight />
+                            </li>
+                        </DialogTrigger>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <DialogHeader>
+                                <DialogTitle className='capitalize'>account details</DialogTitle>
+                                <DialogDescription>
+                                A brief information about the account
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-4 py-4">
+                                
+                            </div>
+                        </DialogContent>
+                    </Dialog>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <li className='p-3 px-6 hover:bg-accent-color-1/20 flex justify-between items-center'>
+                                <span>Change Password</span>
+                                <FaAngleRight />
+                            </li>
+                        </DialogTrigger>
+                        <form action="" onSubmit={handleSubmit((v) => {})}>
+                        <DialogContent className="sm:max-w-[425px]">
+                            <DialogHeader>
+                                <DialogTitle>Change Password</DialogTitle>
+                                <DialogDescription>
+                                    Change your password to something you can remember
+                                </DialogDescription>
+                            </DialogHeader>
+                            <div className="grid gap-4 py-4">
+                                <InputGenerator inputType='input' type='string' id='oldPassword' name='oldPassword' register={register} errors={errors} key={1} placeholder='Old Password' />
+                                <InputGenerator inputType='input' type='string' id='newPassword' name='newPassword' register={register} errors={errors} key={2} placeholder='New Password' />
+                                <InputGenerator inputType='input' type='string' id='confirmPassword' name='confirmPassword' register={register} errors={errors} key={2} placeholder='Confirm Password' />
+                            </div>
+                            <DialogFooter>
+                                <Button type="submit">Save changes</Button>
+                            </DialogFooter>
+                        </DialogContent>
+                        </form>
+                    </Dialog>
+
                     <AlertDialog>
                         <AlertDialogTrigger asChild>
 

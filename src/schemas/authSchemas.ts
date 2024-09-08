@@ -31,8 +31,15 @@ const UpdateProfileSchema = z.object({
     phone_number: z.string().min(11, {message: "Phone number is atleast 11 characters"}).max(14, {message: "Phone number is atmost 14 characters"})
 });
 
+const changePasswordSchema = z.object({
+    oldPassword: z.string(),
+    newPassword: z.string().min(8, {"message": "password must be atleast 8 character long"}).max(32, {"message": "password must be atmost 32 characters long"}),
+    confirmPassword: z.string().min(8, {"message": "password must be atleast 8 character long"}).max(32, {"message": "password must be atmost 32 characters long"})
+});
+
 export {
     LoginSchema,
     SignUpSchema,
-    UpdateProfileSchema
+    UpdateProfileSchema,
+    changePasswordSchema
 }
