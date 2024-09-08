@@ -14,6 +14,13 @@ const ProjectStats = (props: Props) => {
     const [allJobs, setAllJobs] = useState<Jobs>([]);
     const [savedJobs, setSavedJobs] = useState<Jobs>([]);
 
+    function trimStringWithEllipsis(str: string, maxLength: number): string {
+        if (str.length > maxLength) {
+            return str.slice(0, maxLength) + '...';
+        }
+        return str;
+    }    
+
     useEffect(() => {
         getAllJobs().then((res) => {
             if(!res || res.status == "error") {
@@ -90,7 +97,7 @@ const ProjectStats = (props: Props) => {
                         (savedJobs && savedJobs[0]) && (<div key={1} className='flex gap-3 items-center p-2 rounded-t-xl bg-white hover:bg-accent-color-1/20'>
                             <div>
                                 <h3 className='font-semibold text-accent-color-1/60'>{savedJobs[0].title}</h3>
-                                <p className={'font-light text-sm text-gray-500 text-ellipsis'}>{savedJobs[0].description}</p>
+                                <p className={'font-light text-sm text-gray-500 text-ellipsis'}>{trimStringWithEllipsis(savedJobs[0].description, 60)}</p>
                             </div>
                         </div>)
                     }
@@ -98,7 +105,7 @@ const ProjectStats = (props: Props) => {
                         (savedJobs && savedJobs[1]) && (<div key={2} className='flex gap-3 items-center p-2 rounded-b-xl bg-white hover:bg-accent-color-1/20'>
                             <div>
                                 <h3 className='font-semibold text-accent-color-1/60'>{savedJobs[1].title}</h3>
-                                <p className={'font-light text-sm text-gray-500 text-ellipsis'}>{savedJobs[1].description}</p>
+                                <p className={'font-light text-sm text-gray-500 text-ellipsis'}>{trimStringWithEllipsis(savedJobs[1].description, 60)}</p>
                             </div>
                         </div>)
                     }
